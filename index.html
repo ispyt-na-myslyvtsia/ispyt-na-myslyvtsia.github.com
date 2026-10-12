@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Іспит на мисливця — тренажер</title>
+<meta name="description" content="Безкоштовний тренажер до іспиту на мисливця: питання по темах, пояснення, календар термінів полювання і шпаргалки.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦌</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css?v=6">
+</head>
+<body>
+<div class="wrap">
+
+<section id="home">
+  <h1>Іспит на мисливця</h1>
+  <p class="lede">Питання до мисливського іспиту, розбиті на сім тем. Після кожної відповіді — пояснення, чому саме так. Твій прогрес зберігається в цьому браузері.</p>
+  <div class="blocks" id="blocks"><p class="loading" id="loading">Завантажую питання…</p></div>
+  <div class="extra">
+    <div class="row3">
+      <button class="btn primary" id="allBtn">Усі питання навмання</button>
+      <button class="btn" id="mistBtn">Повторити помилки</button>
+      <button class="btn" id="resetBtn2">Скинути прогрес</button>
+    </div>
+  </div>
+  <div class="mat">
+  <h2>Корисні матеріали</h2>
+  <p class="sub">Шпаргалки для повторення. Натисни, щоб розгорнути.</p>
+  <details class="cal">
+    <summary>Календар термінів полювання</summary>
+    <div class="calbox calslot"></div>
+    <p class="calnote">Рік починається з квітня, щоб сезони через Новий рік не розривались. Серпень — старт для більшості. Самиці копитних на місяць пізніше за самців. Птахи: що пізніше відлітають, то довший сезон.</p>
+  </details>
+  <details class="cal">
+    <summary>Штрафи і відповідальність</summary>
+    <table class="cheat">
+      <tr><td>1 НМДГ</td><td>17 грн (20–40 НМДГ = 340–680 грн)</td></tr>
+      <tr><td>Порушення правил полювання (ст. 85 КУпАП): без дозволу, понад норму, не та тварина</td><td>Громадяни 20–40 НМДГ або позбавлення права полювання до 3 років; посадовці 30–50 НМДГ</td></tr>
+      <tr><td>Невиконання вимог інспектора</td><td>Громадяни 5–10, посадовці 10–30 НМДГ</td></tr>
+      <tr><td>Придбання чи збут (ст. 88-1)</td><td>Звичайні тварини 1–5, заборонені знаряддя 3–7, Червона книга 3–8 НМДГ</td></tr>
+      <tr><td>Кримінальна, ст. 248 ч.1 (істотна шкода, ПЗФ, Червона книга)</td><td>До 100 НМДГ, громадські роботи 160–240 год або обмеження волі до 3 років</td></tr>
+      <tr><td>Ст. 248 ч.2 (група за змовою, транспорт)</td><td>100–200 НМДГ, обмеження або позбавлення волі до 5 років</td></tr>
+    </table>
+  </details>
+  <details class="cal">
+    <summary>Дріб, зброя, дистанції</summary>
+    <table class="cheat">
+      <tr><td>Номери дробу</td><td>№1 = 4 мм, кожен наступний номер −0,25 мм (№4 = 3,25). Кожен нуль +0,25 (№0000 = 5 мм). Понад 5 мм — картеч</td></tr>
+      <tr><td>Калібр</td><td>Менше число — ширший ствол: 12 &gt; 16 &gt; 20</td></tr>
+      <tr><td>Набої по дичині</td><td>Крижень №5–6, заєць №3–0, лисиця 0–0000, вовк і копитні — тільки куля</td></tr>
+      <tr><td>Вік</td><td>18 — мисливець, 21 — гладкоствольна, 25 — нарізна. Перереєстрація зброї раз на 3 роки</td></tr>
+      <tr><td>200 м</td><td>Не стріляти ближче до населеного пункту і в бік загону, що наблизився</td></tr>
+      <tr><td>Небезпечна дальність</td><td>Дріб до 250 м, куля з гладкоствольної 300 м, з карабіна 1500 м</td></tr>
+      <tr><td>Затяжний постріл чи осічка</td><td>Чекати 7–8 секунд, не відкриваючи рушницю</td></tr>
+    </table>
+  </details>
+  </div>
+  <button class="btn" id="suggestBtn" style="margin-top: 40px">Запропонувати питання</button>
+  <p class="foot">Позначка ⚠ у поясненні означає, що відповідь сумнівна або застаріла. На іспиті орієнтуйся на офіційний перелік комісії. <button class="linkbtn" id="resetBtn">Скинути прогрес</button></p>
+  <div class="donate">
+    <img src="assets/donate-qr.svg" width="112" height="112" alt="QR-код для донату через Приват24">
+    <div>
+      <p class="donate-t">☕ Пригости автора кавою</p>
+      <p class="donate-s">Тренажер безкоштовний і без реклами. Якщо він допоміг підготуватись, можна підтримати: відскануй QR або натисни кнопку.</p>
+      <a class="btn" href="https://www.privat24.ua/send/kjwql" target="_blank" rel="noopener">Підтримати через Приват24</a>
+    </div>
+  </div>
+</section>
+
+<section id="quiz" class="hidden">
+  <div class="top">
+    <button class="linkbtn" id="backBtn">← До тем</button>
+    <span class="topr"><button class="linkbtn" id="calBtn" aria-expanded="false">Календар</button><span class="count" id="count"></span></span>
+  </div>
+  <div class="qbar"><i id="qbar"></i></div>
+  <div id="calQuiz" class="hidden"><div class="calbox calslot"></div></div>
+  <div class="qnum" id="qnum"></div>
+  <p class="qtext" id="qtext"></p>
+  <div class="opts" id="opts"></div>
+  <div id="why"></div>
+  <div class="nav"><button class="btn primary hidden" id="nextBtn">Далі</button></div>
+</section>
+
+<section id="done" class="hidden">
+  <h2 id="doneTitle"></h2>
+  <div class="result" id="doneScore"></div>
+  <p class="lede" id="doneText"></p>
+  <div class="extra">
+    <button class="btn primary" id="redoBtn">Повторити помилки</button>
+    <button class="btn" id="homeBtn">До тем</button>
+  </div>
+</section>
+
+<section id="suggest" class="hidden">
+  <div class="top"><button class="linkbtn" id="suggestBack">← До тем</button></div>
+  <h1>Запропонувати питання</h1>
+  <p class="lede">Знаєш питання, якого тут немає, або кращий варіант пояснення? Надішли його. Модератор перевірить, і після схвалення питання з'явиться в тесті для всіх.</p>
+  <div id="suggestMsg"></div>
+  <form class="form" id="suggestForm" novalidate>
+    <div class="row2">
+      <label>Тема <span class="hint"></span>
+        <select name="block" id="sBlock" required></select>
+      </label>
+      <label>Номер в офіційному переліку <span class="hint">якщо знаєш</span>
+        <input type="number" name="num" min="1" max="9999" inputmode="numeric">
+      </label>
+    </div>
+    <label>Питання
+      <textarea name="question" rows="2" required maxlength="500"></textarea>
+    </label>
+    <label>Правильна відповідь
+      <textarea name="correct" rows="2" required maxlength="300"></textarea>
+    </label>
+    <fieldset>
+      <legend>Три хибні, але правдоподібні варіанти</legend>
+      <input type="text" name="wrong" required maxlength="300" aria-label="Хибний варіант 1">
+      <input type="text" name="wrong" required maxlength="300" aria-label="Хибний варіант 2">
+      <input type="text" name="wrong" required maxlength="300" aria-label="Хибний варіант 3">
+    </fieldset>
+    <label>Пояснення: чому відповідь саме така
+      <span class="hint">Підказка для запам'ятовування дуже допомагає іншим</span>
+      <textarea name="explanation" rows="3" required maxlength="1000"></textarea>
+    </label>
+    <div class="row2">
+      <label>Твоє ім'я <span class="hint">необов'язково</span>
+        <input type="text" name="author_name" maxlength="80" autocomplete="nickname">
+      </label>
+      <label>Джерело або коментар для модератора <span class="hint">необов'язково</span>
+        <input type="text" name="author_note" maxlength="1000">
+      </label>
+    </div>
+    <div class="hp" aria-hidden="true"><label>Сайт <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+    <div id="captcha" class="captcha"></div>
+    <div><button class="btn primary" type="submit" id="suggestSubmit">Надіслати на перевірку</button></div>
+  </form>
+</section>
+
+</div>
+<script src="assets/app.js?v=8" defer></script>
+</body>
+</html>

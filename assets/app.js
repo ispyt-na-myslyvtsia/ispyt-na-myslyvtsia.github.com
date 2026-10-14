@@ -1,7 +1,7 @@
 (function(){
 "use strict";
 let BLOCKS=[],Q=[],CAPTCHA="",STATIC=false;
-const ISSUE_URL="https://github.com/OleksandrHr/hunter-exam/issues/new";
+const ISSUE_URL="https://github.com/ispyt-na-myslyvtsia/ispyt-na-myslyvtsia.github.com/issues/new";
 const KEY="hunter-quiz-v2";
 let stats={};
 try{stats=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){stats={}}

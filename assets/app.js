@@ -89,7 +89,7 @@ function next(){
   $("doneTitle").textContent=run.title;
   $("doneScore").textContent=`${run.ok} / ${run.list.length}`;
   const pct=run.ok/run.list.length;
-  $("doneText").textContent=run.wrong.length?(pct>=.9?`Майже ідеально. Залишилось ${run.wrong.length} — пройди їх ще раз, поки свіжі.`:`Помилок: ${run.wrong.length}. Повтори їх зараз, а завтра пройди тему ще раз повністю.`):"Без жодної помилки. Повернись до цієї теми через день-два, щоб закріпити.";
+  $("doneText").textContent=run.wrong.length?(pct>=.9?`Майже ідеально. Залишилось ${run.wrong.length} - пройди їх ще раз, поки свіжі.`:`Помилок: ${run.wrong.length}. Повтори їх зараз, а завтра пройди тему ще раз повністю.`):"Без жодної помилки. Повернись до цієї теми через день-два, щоб закріпити.";
   $("redoBtn").classList.toggle("hidden",!run.wrong.length);
   show("done");
 }
